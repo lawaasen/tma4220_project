@@ -61,8 +61,9 @@ def plot2D(X, Y, Z, triangles, title=''):
     ax.set_zlabel('$z$')
     plt.show()
 
-def plot_comparison_2D(X, Y, f1, f2, triangles, title_f1='', title_f2=''):
+def plot_comparison_2D(X, Y, f1, f2, triangles, main_title="", title_f1='', title_f2=''):
     fig = plt.figure(figsize=plt.figaspect(0.33))
+    plt.title(main_title)
     ax = fig.add_subplot(1, 3, 1, projection='3d')
     ax.plot_trisurf(X, Y, f1, triangles=triangles, cmap=cm.viridis, linewidth=0.0)
     ax.set_title(title_f1)
