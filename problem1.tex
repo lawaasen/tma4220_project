@@ -1,0 +1,35 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\begin{document}
+\section*{\textcolor{teal}{\texttt{Weak formulation of the Poisson problem}}}
+Choose a test function $v \in H^1(\Omega)$ with $v=0$ on
+$\partial\Omega_D$. Multiplying $-\Delta u=f$ by $v$ and
+integrating by parts gives
+\[
+    \int_\Omega \nabla u \cdot \nabla v \, dx
+    = \int_\Omega fv \, dx
+    + \int_{\partial\Omega} (\nabla u \cdot n)v \, ds.\]
+The integral over $\partial\Omega_D$ vanishes because $v=0$ there.
+On the two Neumann boundaries, the normal derivatives are $g_{N,1}$
+and $g_{N,2}$. On the Robin boundary, the normal derivative is
+$\kappa(g_R-u)$. Substitute:
+\[\begin{aligned}
+    \int_{\partial\Omega} (\nabla u \cdot n)v \, ds
+    &= \int_{\partial\Omega_{N,1}} g_{N,1}v \, ds
+     + \int_{\partial\Omega_{N,2}} g_{N,2}v \, ds \\
+    &\quad + \int_{\partial\Omega_R} \kappa(g_R-u)v \, ds.
+\end{aligned}\]
+Move the term with $\kappa uv$ to the left.
+Now the weak formulation is: Find $u \in H^1_{g_D,\partial\Omega_D}(\Omega)$
+such that, for every $v \in H^1_{0,\partial\Omega_D}(\Omega)$,
+\[\begin{aligned}
+    \int_\Omega \nabla u \cdot \nabla v \, dx
+    + \int_{\partial\Omega_R} \kappa uv \, ds
+    &= \int_\Omega fv \, dx
+     + \int_{\partial\Omega_{N,1}} g_{N,1}v \, ds \\
+    &\quad + \int_{\partial\Omega_{N,2}} g_{N,2}v \, ds
+     + \int_{\partial\Omega_R} \kappa g_Rv \, ds.
+\end{aligned}\]
+
+\end{document}
